@@ -10,6 +10,7 @@ import { getPageCount } from '../utils/pages';
 import PostList from '../components/PostList';
 import Pagination from '../components/UI/Pagination/Pagination';
 import MyLoader from '../components/UI/Loader/MyLoader';
+import PostFilter from '../components/PostFilter/PostFilter';
 
 // Codes
 const footerNavigation = {
@@ -136,6 +137,9 @@ const Blog = () => {
           All Posts
         </h1>
       </div>
+
+      {/* Filtering and Sorting post results*/}
+      <PostFilter filter={filter} setFilter={setFilter} />
 
       {postError && (
         <h2 className='flex justify-center pt-8 text-2xl font-bold'>
