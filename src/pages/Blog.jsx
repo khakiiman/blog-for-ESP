@@ -141,23 +141,28 @@ const Blog = () => {
       {/* Filtering and Sorting post results*/}
       <PostFilter filter={filter} setFilter={setFilter} />
 
+      {/* Error Handling if any error occurred*/}
       {postError && (
         <h2 className='flex justify-center pt-8 text-2xl font-bold'>
           Error Occurred: {postError}
         </h2>
       )}
       {loader ? (
+        // loading Component
         <MyLoader />
       ) : (
         <React.Fragment>
+          {/* Showing Post List */}
           <PostList post={sortedAndSearchedPosts} remove={deletePost} />
 
+          {/* pagination */}
           <Pagination
             totalPages={totalPages}
             page={page}
             changePage={changePage}
           />
 
+          {/* Footer Prebuilt Component from TailwindCSS */}
           <footer className='mx-auto mt-16 max-w-7xl overflow-hidden px-6 pb-20 sm:mt-20 sm:pb-24 lg:px-8'>
             <nav
               className='-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12'
