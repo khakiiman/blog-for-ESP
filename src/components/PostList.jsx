@@ -3,8 +3,11 @@
 import PostItem from './PostItem/PostItem';
 
 const PostList = ({ post, remove }) => {
+  // reverse posts to show new added post at the top of list of posts.
+  const reversedPosts = [...post].reverse();
+
   // if no posts exist
-  if (!post.length) {
+  if (!reversedPosts.length) {
     return (
       <div className='flex flex-col justify-center items-center pt-12 pb-2 gap-6'>
         <img
@@ -19,7 +22,7 @@ const PostList = ({ post, remove }) => {
 
   return (
     <div>
-      {post.map((item, index) => {
+      {reversedPosts.map((item, index) => {
         return (
           <PostItem
             key={item.id}
