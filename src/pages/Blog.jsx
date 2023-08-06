@@ -11,6 +11,9 @@ import PostList from '../components/PostList';
 import Pagination from '../components/UI/Pagination/Pagination';
 import MyLoader from '../components/UI/Loader/MyLoader';
 import PostFilter from '../components/PostFilter/PostFilter';
+import PostForm from '../components/PostForm';
+import MyModal from '../components/UI/MyModal/MyModal';
+import MyButton from '../components/UI/Button/MyButton';
 
 // Codes
 const footerNavigation = {
@@ -87,6 +90,7 @@ const footerNavigation = {
 };
 
 const Blog = () => {
+  const [modal, setModal] = useState(false);
   const [post, setPost] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
   const sortedAndSearchedPosts = usePosts(post, filter.sort, filter.query);
@@ -117,6 +121,11 @@ const Blog = () => {
     setPost(combPostsAuthors);
   });
 
+  const getPost = (newPost) => {
+    setPost([...post, newPost]);
+    setModal(false);
+  };
+
   const deletePost = (item) => {
     setPost(post.filter((i) => i.id !== item.id));
   };
@@ -136,6 +145,27 @@ const Blog = () => {
         <h1 className='text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'>
           All Posts
         </h1>
+      </div>
+
+      {/* Create New Post */}
+      <MyModal visible={modal} setVisible={setModal}>
+        <PostForm getPost={getPost} />
+      </MyModal>
+      <div className='flex justify-center items-center'>
+        <MyButton
+          style={{
+            width: '50%',
+            height: '42px',
+            margin: '1rem 0rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'center',
+          }}
+          onClick={() => setModal(true)}
+        >
+          Add New Post
+        </MyButton>
       </div>
 
       {/* Filtering and Sorting post results*/}

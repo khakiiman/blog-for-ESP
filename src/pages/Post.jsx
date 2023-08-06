@@ -55,16 +55,18 @@ const Post = () => {
       ) : (
         <Loader />
       )}
-      <hr className='flex my-8 sm:my-14 border w-10/12 border-t-gray-300' />
       {comment.length > 0 && ( // Add this condition to check if there are comments
-        <div>
-          <h2 className='text-gray-900 text-xl font-normal capitalize'>
-            Comments :
-          </h2>
-          {comment.map((i) => {
-            return <Comment key={i.name} email={i.email} body={i.body} />;
-          })}
-        </div>
+        <>
+          <hr className='flex my-8 sm:my-14 border w-11/12 border-t-gray-300' />
+          <div>
+            <h2 className='text-gray-900 text-xl font-normal capitalize'>
+              Comments :
+            </h2>
+            {comment.map((i) => {
+              return <Comment key={i.name} email={i.email} body={i.body} />;
+            })}
+          </div>
+        </>
       )}
     </div>
   );
