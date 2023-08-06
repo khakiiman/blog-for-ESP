@@ -1,0 +1,15 @@
+.MyButton{
+    color: navy;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid yellowgreen;
+    border-radius: 11px;
+    transition: all 0.5s ease;
+}
+.MyButton:hover{
+    background-color: yellowgreen;
+    color: white;
+}
