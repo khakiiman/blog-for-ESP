@@ -1,54 +1,10 @@
 // use TailwindCSS components to make faster looking good design...
-// Code
-const stats = [
-  { label: 'Transactions every 24 hours', value: '44 million' },
-  { label: 'Assets under holding', value: '$119 trillion' },
-  { label: 'New users annually', value: '46,000' },
-];
-const values = [
-  {
-    name: 'Be world-class',
-    description:
-      'Aut illo quae. Ut et harum ea animi natus. Culpa maiores et sed sint et magnam exercitationem quia. Ullam voluptas nihil vitae dicta molestiae et. Aliquid velit porro vero.',
-  },
-  {
-    name: 'Share everything you know',
-    description:
-      'Mollitia delectus a omnis. Quae velit aliquid. Qui nulla maxime adipisci illo id molestiae. Cumque cum ut minus rerum architecto magnam consequatur. Quia quaerat minima.',
-  },
-  {
-    name: 'Always learning',
-    description:
-      'Aut repellendus et officiis dolor possimus. Deserunt velit quasi sunt fuga error labore quia ipsum. Commodi autem voluptatem nam. Quos voluptatem totam.',
-  },
-  {
-    name: 'Be supportive',
-    description:
-      'Magnam provident veritatis odit. Vitae eligendi repellat non. Eum fugit impedit veritatis ducimus. Non qui aspernatur laudantium modi. Praesentium rerum error deserunt harum.',
-  },
-  {
-    name: 'Take responsibility',
-    description:
-      'Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure. Non nesciunt dolorem veniam necessitatibus laboriosam voluptas perspiciatis error.',
-  },
-  {
-    name: 'Enjoy downtime',
-    description:
-      'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
-  },
-];
 const team = [
   {
     name: 'Iman K. Arvand',
-    role: 'Co-Founder / CTO',
+    role: 'FrontEnd Developer',
     imageUrl: '/images/team1.jpg',
   },
-  {
-    name: 'John Doe',
-    role: 'DevOps Expert',
-    imageUrl: '/images/team2.webp',
-  },
-  // More people...
 ];
 const footerNavigation = {
   main: [
@@ -171,19 +127,19 @@ export default function About() {
             />
           </div>
           <div className='overflow-hidden'>
-            <div className='mx-auto max-w-7xl px-6 pb-32 pt-20 sm:pt-28 lg:px-8 lg:pt-8'>
+            <div className='mx-auto max-w-7xl px-6 pt-20 sm:pt-28 lg:px-8 lg:pt-8'>
               <div className='mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center'>
                 <div className='w-full max-w-xl lg:shrink-0 xl:max-w-2xl'>
-                  <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
+                  <h1 className='text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
                     Welcome to TechInsight
                   </h1>
-                  <p className='relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none'>
-                    At TechInsight, our mission is to empower tech enthusiasts,
-                    developers, and anyone interested in technology by providing
-                    insightful and informative content on a wide range of tech
-                    topics. We aim to be a valuable resource for staying
-                    up-to-date with the latest trends, developments, and
-                    innovations in the tech world.
+                  <p className='relative text-center mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none'>
+                    Welcome to the Weblog Test App named TechInsight, a platform
+                    I have created as a dynamic tool for code challenges and
+                    interviews. This app is designed to simulate real-world
+                    scenarios and technical evaluations that candidates may face
+                    during interviews for frontend positions. It is a space
+                    where coding skills meet problem-solving and innovation.
                   </p>
                 </div>
                 <div className='mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0'>
@@ -239,193 +195,24 @@ export default function About() {
           </div>
         </div>
 
-        {/* Content section */}
-        <div className='mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8'>
-          <div className='mx-auto max-w-2xl lg:mx-0 lg:max-w-none'>
-            <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-              Our mission
-            </h2>
-            <div className='mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row'>
-              <div className='lg:w-full lg:max-w-2xl lg:flex-auto'>
-                <p className='text-xl leading-8 text-gray-600'>
-                  We aim to be a valuable resource for staying up-to-date with
-                  the latest trends, developments, and innovations in the tech
-                  world.
-                </p>
-                <div className='mt-10 max-w-xl text-base leading-7 text-gray-700'>
-                  <p>
-                    TechInsights was born out of our collective love for
-                    technology and our desire to create a platform that fosters
-                    knowledge-sharing within the tech community. We launched the
-                    blog in 2010 with the goal of making complex tech concepts
-                    accessible to everyone.
-                  </p>
-                  <p className='mt-10'>
-                    Et vitae blandit facilisi magna lacus commodo. Vitae sapien
-                    duis odio id et. Id blandit molestie auctor fermentum
-                    dignissim. Lacus diam tincidunt ac cursus in vel. Mauris
-                    varius vulputate et ultrices hac adipiscing egestas. Iaculis
-                    convallis ac tempor et ut. Ac lorem vel integer orci.
-                  </p>
-                </div>
-              </div>
-              <div className='lg:flex lg:flex-auto lg:justify-center'>
-                <dl className='w-64 space-y-8 xl:w-80'>
-                  {stats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className='flex flex-col-reverse gap-y-4'
-                    >
-                      <dt className='text-base leading-7 text-gray-600'>
-                        {stat.label}
-                      </dt>
-                      <dd className='text-5xl font-semibold tracking-tight text-gray-900'>
-                        {stat.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Image section */}
-        <div className='mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8'>
-          <img
-            src='/images/about6.webp'
-            alt=''
-            className='aspect-[5/2] w-full object-cover xl:rounded-3xl'
-          />
-        </div>
-
-        {/* Values section */}
-        <div className='mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8'>
-          <div className='mx-auto max-w-2xl lg:mx-0'>
-            <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-              Our values
-            </h2>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
-            </p>
-          </div>
-          <dl className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-            {values.map((value) => (
-              <div key={value.name}>
-                <dt className='font-semibold text-gray-900'>{value.name}</dt>
-                <dd className='mt-1 text-gray-600'>{value.description}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Logo cloud */}
-        <div className='relative isolate -z-10 mt-32 sm:mt-48'>
-          <div className='absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]'>
-            <svg
-              className='h-[40rem] w-[80rem] flex-none stroke-gray-200'
-              aria-hidden='true'
-            >
-              <defs>
-                <pattern
-                  id='e9033f3e-f665-41a6-84ef-756f6778e6fe'
-                  width={200}
-                  height={200}
-                  x='50%'
-                  y='50%'
-                  patternUnits='userSpaceOnUse'
-                  patternTransform='translate(-100 0)'
-                >
-                  <path d='M.5 200V.5H200' fill='none' />
-                </pattern>
-              </defs>
-              <svg x='50%' y='50%' className='overflow-visible fill-gray-50'>
-                <path
-                  d='M-300 0h201v201h-201Z M300 200h201v201h-201Z'
-                  strokeWidth={0}
-                />
-              </svg>
-              <rect
-                width='100%'
-                height='100%'
-                strokeWidth={0}
-                fill='url(#e9033f3e-f665-41a6-84ef-756f6778e6fe)'
-              />
-            </svg>
-          </div>
-          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <h2 className='text-center text-lg font-semibold leading-8 text-gray-900'>
-              Trusted by the world’s most innovative teams
-            </h2>
-            <div className='mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5'>
-              <img
-                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-                src='https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg'
-                alt='Transistor'
-                width={158}
-                height={48}
-              />
-              <img
-                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-                src='https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg'
-                alt='Reform'
-                width={158}
-                height={48}
-              />
-              <img
-                className='col-span-2 max-h-12 w-full object-contain lg:col-span-1'
-                src='https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg'
-                alt='Tuple'
-                width={158}
-                height={48}
-              />
-              <img
-                className='col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1'
-                src='https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg'
-                alt='SavvyCal'
-                width={158}
-                height={48}
-              />
-              <img
-                className='col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1'
-                src='https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg'
-                alt='Statamic'
-                width={158}
-                height={48}
-              />
-            </div>
-          </div>
-        </div>
-
         {/* Team section */}
-        <div className='mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8'>
-          <div className='mx-auto max-w-2xl lg:mx-0'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+          <div className='flex flex-col pt-12 sm:pt-4 w-full items-center justify-center mx-auto lg:mx-0'>
             <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-              Our team
+              About Me
             </h2>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Our blog is powered by a team of passionate tech experts and
-              writers who are dedicated to sharing their knowledge and expertise
-              with our readers.
+            <p className='text-center mt-6 text-lg leading-8 text-gray-600'>
+              This blog is powered by a Iman K. Arvand, a passionate tech
+              developer who really love web development.
             </p>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              Iman K. Arvand - Co-Founder & Tech Enthusiast Iman has been
-              passionate about technology from a young age. With a background in
-              computer science, he loves exploring the world of programming, AI,
-              and cutting-edge technologies.
-            </p>
-            <p className='mt-6 text-lg leading-8 text-gray-600'>
-              John Doe - Co-Founder & Cybersecurity Specialist John is a
-              cybersecurity expert with years of experience in protecting
-              digital assets. She is committed to educating readers about online
-              security and privacy.
+            <p className='text-center mt-6 text-lg leading-8 text-gray-600'>
+              Iman K. Arvand - Frontend Developer. &ldquo;I have been passionate
+              about technology from a young age. With a background in computer
+              science, I love exploring the world of programming, web
+              development technologies&ldquo;
             </p>
           </div>
-          <ul
-            role='list'
-            className='mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6'
-          >
+          <ul role='list' className='py-16 flex justify-center items-center'>
             {team.map((person) => (
               <li key={person.name}>
                 <img
