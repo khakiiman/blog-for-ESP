@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 // Packages
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Files
 import BlogService from '../API/BlogService';
-import { usePosts } from '../hooks/usePosts';
-import { useFetch } from '../hooks/useFetch';
-import { getPageCount } from '../utils/pages';
 import PostList from '../components/PostList';
 import Pagination from '../components/UI/Pagination/Pagination';
 import MyLoader from '../components/UI/Loader/MyLoader';
@@ -14,6 +12,10 @@ import PostFilter from '../components/PostFilter/PostFilter';
 import PostForm from '../components/PostForm';
 import MyModal from '../components/UI/MyModal/MyModal';
 import MyButton from '../components/UI/Button/MyButton';
+import { usePosts } from '../hooks/usePosts';
+import { useFetch } from '../hooks/useFetch';
+import { getPageCount } from '../utils/pages';
+import { addPost, removePost } from '../store/postsSlice';
 
 // Codes
 const footerNavigation = {
@@ -90,6 +92,11 @@ const footerNavigation = {
 };
 
 const Blog = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts.posts);
+
+  // States
   const [modal, setModal] = useState(false);
   const [post, setPost] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
@@ -98,36 +105,46 @@ const Blog = () => {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
 
+  // Fetches
   const [fetchPost, loader, postError] = useFetch(async () => {
-    // get posts and users from JsonPlaceHolder and combine them to
-    // a solid database for this app that need post title, content of post and author of post.
-    const posts = await BlogService.fetchAll(limit, page);
-    const authors = await BlogService.getAuthors();
+    try {
+      // get posts and users from JsonPlaceHolder and combine them to
+      // a solid database for this app that need post title, content of post and author of post.
+      const posts = await BlogService.fetchAll(limit, page);
+      const authors = await BlogService.getAuthors();
 
-    // define total page need form total count of posts and
-    // defined limited post per page for render received posts.
-    const totalCount = posts.headers['x-total-count'];
-    setTotalPages(getPageCount(totalCount, limit));
+      // define total page need form total count of posts and
+      // defined limited post per page for render received posts.
+      const totalCount = posts.headers['x-total-count'];
+      setTotalPages(getPageCount(totalCount, limit));
 
-    // shuffle 10 users received from JSONPlaceHolder and shuffle them to posts
-    const shuffledAuthors = [...authors.data];
-    shuffledAuthors.sort(() => Math.random() - 0.5);
-    // combine posts and users received from database to one solid data object
-    const combPostsAuthors = posts.data.map((post, index) => {
-      const user = shuffledAuthors[index % shuffledAuthors.length];
-      return { ...user, ...post };
-    });
-    // update post state...
-    setPost(combPostsAuthors);
+      // shuffle 10 users received from JSONPlaceHolder and shuffle them to posts
+      const shuffledAuthors = [...authors.data];
+      shuffledAuthors.sort(() => Math.random() - 0.5);
+      // combine posts and users received from database to one solid data object
+      const combPostsAuthors = posts.data.map((post, index) => {
+        const user = shuffledAuthors[index % shuffledAuthors.length];
+        return { ...user, ...post };
+      });
+      // update post state...
+      setPost(combPostsAuthors);
+
+      // Update the Redux store with the fetched posts
+      for (let i = 0; i < combPostsAuthors.length; i++) {
+        dispatch(addPost(combPostsAuthors[i]));
+      }
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
   });
 
   const getPost = (newPost) => {
-    setPost([...post, newPost]);
+    dispatch(addPost(newPost));
     setModal(false);
   };
 
   const deletePost = (item) => {
-    setPost(post.filter((i) => i.id !== item.id));
+    dispatch(removePost(item.id)); // Dispatch the removePost action
   };
 
   useEffect(() => {

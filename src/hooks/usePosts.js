@@ -1,6 +1,13 @@
+// Packages
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux'; // Add this line
 
-export const usePosts = (posts, sort, query) => {
+// Files
+
+// Codes
+export const usePosts = (sort, query) => {
+  const posts = useSelector((state) => state.posts.posts); // Fetch posts from Redux store
+  // sorted And Searched Posts Algorithm
   const sortedAndSearchedPosts = useMemo(() => {
     let sortedPosts = [...posts];
 

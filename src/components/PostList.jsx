@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+
+// Packages
+import { useDispatch, useSelector } from 'react-redux'; // Add this import
+
+// Files
 import PostItem from './PostItem/PostItem';
 
-const PostList = ({ post, remove }) => {
+// Codes
+const PostList = ({ remove }) => {
   // reverse posts to show new added post at the top of list of posts.
-  const reversedPosts = [...post].reverse();
+  const reversedPosts = useSelector((state) => state.posts.posts); // Use Redux state
 
   // if no posts exist
   if (!reversedPosts.length) {

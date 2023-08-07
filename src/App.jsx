@@ -19,7 +19,6 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
-      {/* Hi */}
       <AuthProvider>
         <Routes>
           <Route path='/' element={<Layout />}>

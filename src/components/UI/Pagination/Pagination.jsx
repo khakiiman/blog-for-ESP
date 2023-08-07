@@ -13,8 +13,7 @@ const Pagination = ({ totalPages, page, changePage }) => {
           key={i}
           current={page === i ? true : false}
         >
-          {' '}
-          {i}{' '}
+          {i}
         </MyButtonS>
       ))}
     </div>
