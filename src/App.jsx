@@ -9,6 +9,9 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Post from './pages/Post';
 
+import { AuthProvider } from './context/AuthProvider';
+import { RequireAuth } from './context/RequireAuth';
+
 // Styles
 import './App.css';
 
@@ -16,15 +19,25 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<Blog />} />
-          <Route path='posts/:id' element={<Post />} />
-          <Route path='about' element={<About />} />
-          <Route path='login' element={<Login />} />
-          <Route path='*' element={<NotFound />} />
-        </Route>
-      </Routes>
+      {/* Hi */}
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Blog />
+                </RequireAuth>
+              }
+            />
+            <Route path='posts/:id' element={<Post />} />
+            <Route path='about' element={<About />} />
+            <Route path='login' element={<Login />} />
+            <Route path='*' element={<NotFound />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { Dialog } from '@headlessui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
+import { useAuth } from '../../hooks/useAuth';
+
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: 'about' },
@@ -11,6 +13,12 @@ const navigation = [
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const logOut = () => {
+    window.localStorage.clear();
+    signOut(() => navigate('/', { replace: true }));
+  };
 
   return (
     <header className='sticky backdrop-blur-[10px] bg-[rgba(255, 255, 255, 0.8)] inset-x-0 top-0 z-50'>
@@ -62,7 +70,25 @@ const Header = () => {
               {navigation[1].name}
             </Link>
           </li>
-          <li> Based on Auth Show Login or Logout</li>
+          <li>
+            {user ? (
+              <div
+                className='hover:text-red-500 cursor-pointer text-lg font-semibold leading-6 text-[#111827]'
+                onClick={() => logOut()}
+              >
+                LogOut
+              </div>
+            ) : (
+              <div>
+                <Link
+                  className='text-lg font-semibold leading-6 text-[#111827]'
+                  to='login'
+                >
+                  LogIn
+                </Link>
+              </div>
+            )}
+          </li>
         </ul>
       </nav>
       <Dialog
@@ -122,7 +148,29 @@ const Header = () => {
                     {navigation[1].name}
                   </Link>
                 </li>
-                <li className='pt-8'>Based on Auth Show Login or Logout</li>
+                <li className='pt-8'>
+                  {user ? (
+                    <div
+                      className='text-xl font-semibold leading-6 text-gray-900'
+                      onClick={() => {
+                        logOut();
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      LogOut
+                    </div>
+                  ) : (
+                    <div>
+                      <Link
+                        className='text-xl font-semibold leading-6 text-gray-900'
+                        to='login'
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        LogIn
+                      </Link>
+                    </div>
+                  )}
+                </li>
               </ul>
             </div>
           </div>
