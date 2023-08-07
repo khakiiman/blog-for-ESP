@@ -15,7 +15,7 @@ import MyButton from '../components/UI/Button/MyButton';
 import { usePosts } from '../hooks/usePosts';
 import { useFetch } from '../hooks/useFetch';
 import { getPageCount } from '../utils/pages';
-import { addPost, removePost } from '../store/postsSlice';
+import { addPost, removePost, setPosts } from '../store/postsSlice';
 
 // Codes
 const footerNavigation = {
@@ -100,7 +100,7 @@ const Blog = () => {
   const [modal, setModal] = useState(false);
   const [post, setPost] = useState([]);
   const [filter, setFilter] = useState({ sort: '', query: '' });
-  const sortedAndSearchedPosts = usePosts(post, filter.sort, filter.query);
+  const sortedAndSearchedPosts = usePosts(filter.sort, filter.query);
   const [totalPages, setTotalPages] = useState(0);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -130,9 +130,8 @@ const Blog = () => {
       setPost(combPostsAuthors);
 
       // Update the Redux store with the fetched posts
-      for (let i = 0; i < combPostsAuthors.length; i++) {
-        dispatch(addPost(combPostsAuthors[i]));
-      }
+      dispatch(setPosts(combPostsAuthors));
+
     } catch (error) {
       console.error('Error fetching posts:', error);
     }

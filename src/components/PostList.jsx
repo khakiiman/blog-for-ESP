@@ -8,12 +8,13 @@ import { useDispatch, useSelector } from 'react-redux'; // Add this import
 import PostItem from './PostItem/PostItem';
 
 // Codes
-const PostList = ({ remove }) => {
+const PostList = ({ post, remove }) => {
   // reverse posts to show new added post at the top of list of posts.
-  const reversedPosts = useSelector((state) => state.posts.posts); // Use Redux state
+  const posts = post;
+  // const reversedPosts = useSelector((state) => state.posts.posts); // Use Redux state
 
   // if no posts exist
-  if (!reversedPosts.length) {
+  if (!posts.length) {
     return (
       <div className='flex flex-col justify-center items-center pt-12 pb-2 gap-6'>
         <img
@@ -28,7 +29,7 @@ const PostList = ({ remove }) => {
 
   return (
     <div>
-      {reversedPosts.map((item, index) => {
+      {posts.map((item, index) => {
         return (
           <PostItem
             key={item.id}

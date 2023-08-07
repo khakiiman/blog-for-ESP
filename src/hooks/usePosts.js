@@ -20,8 +20,8 @@ export const usePosts = (sort, query) => {
     if (query) {
       sortedPosts = sortedPosts.filter(
         (post) =>
-          post.title.toLowerCase().includes(query.toLowerCase()) ||
-          post.name.toLowerCase().includes(query.toLowerCase())
+          post.title.toLowerCase().includes(query?.toLowerCase()) ||
+          post.name.toLowerCase().includes(query?.toLowerCase())
       );
     }
 
