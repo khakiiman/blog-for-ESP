@@ -197,7 +197,7 @@ export default function About() {
 
         {/* Team section */}
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-          <div className='flex flex-col pt-12 sm:pt-4 w-full items-center justify-center mx-auto lg:mx-0'>
+          <div className='flex flex-col pt-12 sm:pt-16 lg:pt-12 w-full items-center justify-center mx-auto lg:mx-0'>
             <h2 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
               About Me
             </h2>
