@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import MyInput from './UI/input/MyInput';
+import MyInput from './UI/Input/MyInput';
 import MyButton from './UI/Button/MyButton';
 
 const PostForm = ({ getPost }) => {
