@@ -1,5 +1,7 @@
-# TechInsight Blog App
 
+![alt text](https://github.com/khakiiman/blog-for-ESP/blob/main/public/images/IntroPic.png?raw=true)
+
+# TechInsight Blog App
 The Blog App is a web application that allows users to read posts from JsonPlaceHolder API and create their own blog posts. It provides a user-friendly interface for browsing, searching and sorting blog content. This README provides an overview of the app's features, installation instructions, usage guide, and more.
 
 ## Table of Contents
